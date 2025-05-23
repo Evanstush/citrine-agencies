@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Services | Citrine Agencies</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar-nav .nav-link {
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #0d6efd;
+      border-bottom: 2px solid #0d6efd;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #0d6efd;
+      font-weight: 600;
+    }
+
+    .navbar-brand:hover {
+      animation: bounce 0.5s ease-in-out;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+      60% { transform: translateY(0); }
+      100% { transform: translateY(-3px); }
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card .card-body i {
+      transition: color 0.3s ease;
+    }
+
+    .card:hover .card-body i {
+      color: #0d6efd;
+    }
+
+    header {
+      background-color: #0d6efd;
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 2rem;
+      border-radius: 0 0 3rem 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p.lead {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    header .btn {
+      font-size: 1.25rem;
+      padding: 0.75rem 2rem;
+    }
+
+    .card i,
+    .border i {
+      color: #0d6efd;
+    }
+
+    .section-light {
+      background-color: #f8f9fa;
+    }
+
+    .btn-primary:hover {
+      background-color: #0b5ed7;
+      border-color: #0a58ca;
+      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    }
+
+    /* === Your Services page CSS === */
+
+    .service-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .service-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .service-img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .service-content {
+      padding: 1rem;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .service-title {
+      color: #1a73e8;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-desc {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #ff8c00;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .service-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stats-section {
+      text-align: center;
+      background-color: #f5f8ff;
+      padding: 3rem 1rem;
+      margin-bottom: 4rem;
+      border-radius: 10px;
+    }
+
+    .stats-section h3 {
+      font-weight: 700;
+      color: #1a73e8;
+      margin-bottom: 2rem;
+    }
+
+    .stat {
+      font-size: 2rem;
+      color: #333;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      color: #777;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem;
+    }
+
+    .case-studies {
+      padding: 2rem 0;
+      margin-bottom: 4rem;
+    }
+
+    .case-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .case-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .case-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a73e8;
+    }
+
+    .case-desc {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #1a73e8;
+      color: white;
+      border-radius: 10px;
+      margin-bottom: 4rem;
+    }
+
+    .cta-section h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+      padding: 0.7rem 1.5rem;
+      margin: 0 0.5rem;
+      border-radius: 30px;
+      border: none;
+      font-weight: 600;
+      color: #fff;
+      background: #ff8c00;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+
+    .cta-btn:hover {
+      background: #e67500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="index.html">Citrine Agencies</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <h1>Our Services</h1>
+      <p class="lead">Empowering brands, teams, and organizations through innovative solutions.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container my-5">
+    <!-- TEAM BUILDING SOLUTIONS -->
+    <div class="service-section">
+      <img src="images/services/team_building.jpg" alt="Team Building" class="service-img" />
+      <div class="service-content">
+        <h2 class="service-title">TEAM BUILDING SOLUTIONS</h2>
+        <p class="service-desc">
+          We specialize in delivering expert team building sessions and activities that are designed to <span class="highlight">strengthen collaboration, boost morale, and enhance productivity</span> within your organization. Whether you're a small startup or a large corporation, our customized programs are tailored to meet your team's unique needs.
+        </p>
+      </div>
+    </div>
+
+    <!-- LEADERSHIP & COACHING -->
+    <div class="service-section" style="flex-direction: row-reverse;">
+      <img src="images/services/coaching.jpg" alt="Leadership & Coaching" class="service-img" />
+      <div class="service-content">
+        <h2 class="service-title">LEADERSHIP & COACHING</h2>
+        <p class="service-desc">
+          Our leadership and coaching programs empower managers and executives to <span class="highlight">develop essential leadership skills, emotional intelligence, and effective communication techniques.</span> We provide one-on-one coaching, group workshops, and continuous support to help leaders thrive in today's dynamic business environment.
+        </p>
+      </div>
+    </div>
+
+    <!-- WORKSHOP FACILITATION -->
+    <div class="service-section">
+      <img src="images/services/workshop.avif" alt="Workshop Facilitation" class="service-img" />
+      <div class="service-content">
+        <h2 class="service-title">WORKSHOP FACILITATION</h2>
+        <p class="service-desc">
+          Our expert facilitators design and conduct engaging workshops that foster creativity, problem-solving, and strategic thinking. From half-day sessions to multi-day retreats, we tailor each workshop to your objectives, ensuring maximum impact and participant engagement.
+        </p>
+      </div>
+    </div>
+
+    <!-- CONSULTANCY & CUSTOM TRAINING -->
+    <div class="service-section" style="flex-direction: row-reverse;">
+      <img src="images/services/consultancy.jpg" alt="Consultancy & Custom Training" class="service-img" />
+      <div class="service-content">
+        <h2 class="service-title">CONSULTANCY & CUSTOM TRAINING</h2>
+        <p class="service-desc">
+          We offer professional consultancy services and custom training programs designed to address your organization's specific challenges and goals. Our solutions help you <span class="highlight">optimize operations, enhance skills, and drive sustainable growth.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- CORPORATE EVENTS & RETREATS -->
+    <div class="service-section">
+      <img src="images/services/retreats.jpeg" alt="Corporate Events & Retreats" class="service-img" />
+      <div class="service-content">
+        <h2 class="service-title">CORPORATE EVENTS & RETREATS</h2>
+        <p class="service-desc">
+          From concept to execution, we manage corporate events and retreats that align with your company culture and objectives. Our services include event planning, team activities, and post-event evaluations to ensure a memorable and productive experience.
+        </p>
+      </div>
+    </div>
+
+    <!-- STATISTICS -->
+    <div class="stats-section mt-5">
+      <h3>Our Impact at a Glance</h3>
+      <div class="stats-grid">
+        <div>
+          <div class="stat">500+</div>
+          <div class="stat-label">Workshops Conducted</div>
+        </div>
+        <div>
+          <div class="stat">3000+</div>
+          <div class="stat-label">Participants Engaged</div>
+        </div>
+        <div>
+          <div class="stat">100+</div>
+          <div class="stat-label">Corporate Clients</div>
+        </div>
+        <div>
+          <div class="stat">15</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDIES -->
+    <section class="case-studies">
+      <h2 class="mb-4" style="text-align:center; color:#1a73e8;">Case Studies</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="case-card">
+            <h3 class="case-title">Boosting Team Performance at TechCorp</h3>
+            <p class="case-desc">Implemented a tailored team building program that increased collaboration and reduced conflicts, resulting in a 25% productivity boost.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="case-card">
+            <h3 class="case-title">Leadership Coaching for Retail Leaders</h3>
+            <p class="case-desc">Coached retail managers to improve communication skills and employee engagement, leading to higher retention rates and customer satisfaction.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="case-card">
+            <h3 class="case-title">Corporate Retreat for Creative Minds</h3>
+            <p class="case-desc">Organized a multi-day retreat focusing on innovation and team synergy, resulting in new project initiatives and stronger team bonds.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-section">
+      <h3>Ready to Transform Your Team?</h3>
+      <p>Contact Citrine Agencies today to learn how our services can empower your organization to reach new heights.</p>
+      <a href="contact.html" class="cta-btn">Get in Touch</a>
+      <a href="index.html" class="cta-btn">Back to Home</a>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light py-4">
+    <div class="container text-center">
+      <p class="mb-0 text-muted">&copy; 2025 Citrine Agencies. All rights reserved.</p>
+      <p class="text-muted">
+        <a href="privacy.html" class="text-decoration-none text-muted me-3">Privacy Policy</a>
+        <a href="terms.html" class="text-decoration-none text-muted">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
